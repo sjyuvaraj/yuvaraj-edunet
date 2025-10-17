@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Counting Down</title>
+</head>
+<body>
+  <h2>Counting down from 15 to -9 by 3:</h2>
+  <div id="output"></div>
+
+  <script>
+    let outputDiv = document.getElementById("output");
+    for (let i = 15; i >= -9; i -= 3) {
+      console.log(i);
+      outputDiv.innerHTML += i + "<br>";
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>While Loop Example</title>
+</head>
+<body>
+  <h2>Counting down from 15 to -9 using a while loop:</h2>
+  <div id="output"></div>
+
+  <script>
+    // 1. Initialization
+    let i = 15;
+
+    // Get reference to the output div
+    let outputDiv = document.getElementById("output");
+
+    // 2. Condition
+    while (i >= -9) {
+      // Output to console
+      console.log(i);
+
+      // Output to web page
+      outputDiv.innerHTML += i + "<br>";
+
+      // 3. Iteration
+      i -= 3;
+    }
+  </script>
+</body>
+</html>

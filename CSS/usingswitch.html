@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Grade Calculator</title>
+    <script>
+        function calculateGrade() {
+            let marks = parseFloat(prompt("Enter your marks (0-100):"));
+
+            if (isNaN(marks) || marks < 0 || marks > 100) {
+                alert("Enter a valid number between 0 and 100.");
+                return;
+            }
+
+            let grade;
+            switch (Math.floor(marks / 10)) {
+                case 10:
+                case 9:
+                    grade = "S";
+                    break;
+                case 8:
+                    grade = "A+";
+                    break;
+                case 7:
+                    grade = "A";
+                    break;
+                case 6:
+                    grade = "B+";
+                    break;
+                case 5:
+                    grade = "B";
+                    break;
+                case 4:
+                    grade = "C";
+                    break;
+                default:
+                    grade = "F";
+            }
+
+            alert("Your grade is: " + grade);
+        }
+
+        window.onload = calculateGrade;
+    </script>
+</head>
+<body>
+</body>
+</html>

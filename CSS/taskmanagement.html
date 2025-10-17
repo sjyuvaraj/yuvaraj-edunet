@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task Manager</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f8ff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background-color: white;
+      padding: 20px 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      width: 300px;
+      text-align: center;
+    }
+
+    h2 {
+      color: #0078ff;
+      margin-bottom: 20px;
+    }
+
+    input[type="text"] {
+      width: 70%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-right: 5px;
+    }
+
+    button {
+      padding: 8px 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .add-btn {
+      background-color: #0078ff;
+      color: white;
+    }
+
+    .remove-btn {
+      background-color: #ff4d4d;
+      color: white;
+      margin-left: 10px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 15px;
+    }
+
+    li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #f9f9f9;
+      padding: 8px;
+      border-radius: 5px;
+      margin-bottom: 8px;
+    }
+
+    .task-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    input[type="checkbox"] {
+      accent-color: #0078ff;
+      transform: scale(1.2);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Task Manager</h2>
+    <div>
+      <input type="text" id="taskInput" placeholder="What needs to be done?" />
+      <button class="add-btn" onclick="addTask()">Add Task</button>
+    </div>
+    <ul id="taskList"></ul>
+  </div>
+
+  <script>
+    function addTask() {
+      const taskInput = document.getElementById("taskInput");
+      const taskText = taskInput.value.trim();
+      if (taskText === "") return;
+
+      const taskList = document.getElementById("taskList");
+
+      const li = document.createElement("li");
+
+      const taskLeft = document.createElement("div");
+      taskLeft.classList.add("task-left");
+
+      const checkbox = document.createElement("input");
+      checkbox.type = "checkbox";
+
+      const span = document.createElement("span");
+      span.textContent = taskText;
+
+      taskLeft.appendChild(checkbox);
+      taskLeft.appendChild(span);
+
+      const removeBtn = document.createElement("button");
+      removeBtn.textContent = "Remove";
+      removeBtn.classList.add("remove-btn");
+      removeBtn.onclick = () => li.remove();
+
+      li.appendChild(taskLeft);
+      li.appendChild(removeBtn);
+
+      taskList.appendChild(li);
+      taskInput.value = "";
+    }
+  </script>
+
+</body>
+</html>
